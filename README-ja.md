@@ -253,10 +253,14 @@ true;
 - [**12.5.9** Logical NOT Operator (`!`)](https://www.ecma-international.org/ecma-262/#sec-logical-not-operator)
 - [**7.2.15** Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison)
 
-## `true` is not equal `![]`, but not equal `[]` too
+<!-- ## `true` is not equal `![]`, but not equal `[]` too -->
 
-Array is not equal `true`, but not Array is not equal `true` too;
-Array is equal `false`, not Array is equal `false` too:
+## `true`は`![]`と等しくないが、`[]`とも等しくない
+
+<!-- Array is not equal `true`, but not Array is not equal `true` too;
+Array is equal `false`, not Array is equal `false` too: -->
+
+配列`[]`は`true`と等しくありませんが、配列の論理否定`![]`も`true`と等しくありません。配列`[]`は`false`と等しいですが、配列の論理否定`![]`も`false`と等しいです。
 
 ```js
 true == []; // -> false
@@ -266,13 +270,13 @@ false == []; // -> true
 false == ![]; // -> true
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
 ```js
 true == []; // -> false
 true == ![]; // -> false
 
-// According to the specification
+// JavaScriptの仕様によると
 
 true == []; // -> false
 
@@ -292,7 +296,7 @@ true == false; // -> false
 false == []; // -> true
 false == ![]; // -> true
 
-// According to the specification
+// JavaScriptの仕様によると
 
 false == []; // -> true
 
