@@ -19,7 +19,7 @@ JavaScriptは素晴らしい言語です。シンプルな構文、大規模な�
 
 <!-- The original idea for WTFJS belongs to [Brian Leroux](https://twitter.com/brianleroux). This list is highly inspired by his talk [**“WTFJS”** at dotJS 2012](https://www.youtube.com/watch?v=et8xNAc2ic8): -->
 
-WTFJSの原案は[Brian Leroux](https://twitter.com/brianleroux)氏によるものです。このリストは[dotJS 2012での彼の講演 **"WTFJS"**](https://www.youtube.com/watch?v=et8xNAc2ic8)に強く影響を受けています。
+WTFJSの原案は[Brian Leroux](https://twitter.com/brianleroux)氏によるものです。本書のリストは[dotJS 2012での彼の講演 **"WTFJS"**](https://www.youtube.com/watch?v=et8xNAc2ic8)に強く影響を受けています。
 
 
 [![dotJS 2012 - Brian Leroux - WTFJS](https://img.youtube.com/vi/et8xNAc2ic8/0.jpg)](https://www.youtube.com/watch?v=et8xNAc2ic8)
