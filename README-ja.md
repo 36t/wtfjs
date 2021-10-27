@@ -219,7 +219,7 @@ const foo = function() {};
 
 # 👀 サンプルリスト
 
-## `[]`と`![]`は同じ
+## `[]`と`![]`は等しい
 
 <!-- Array is equal not array: -->
 
