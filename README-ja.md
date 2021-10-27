@@ -36,7 +36,7 @@ $ npm install -g wtfjs
 
 <!-- You should be able to run `wtfjs` at the command line now. This will open the manual in your selected `$PAGER`. Otherwise, you may continue reading on here. -->
 
-これでコマンドラインで`wtfjs`を実行できるはずです。これで、選択した`$PAGER`でマニュアルが開かれます。それ以外の場合は、ここで読み進めることができます。
+これでコマンドラインで`wtfjs`を実行できるはずです。これで、選択した`$PAGER`でマニュアルが開かれます。それ以外の場合は、本書で読み進めることができます。
 
 <!-- The source is available here: <https://github.com/denysdovhan/wtfjs> -->
 
