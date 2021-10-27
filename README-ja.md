@@ -314,23 +314,27 @@ false == false; // -> true
 
 - [**7.2.15** Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison)
 
-## true is false
+<!-- ## true is false -->
+
+## 真は偽です
 
 ```js
 !!"false" == !!"true"; // -> true
 !!"false" === !!"true"; // -> true
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-Consider this step-by-step:
+<!-- Consider this step-by-step: -->
+
+順を追って考えてみましょう。
 
 ```js
-// true is 'truthy' and represented by value 1 (number), 'true' in string form is NaN.
+// trueは'真'であり、1の値（数字）で表され、文字列の'true'はNaNです
 true == "true"; // -> false
 false == "false"; // -> false
 
-// 'false' is not the empty string, so it's a truthy value
+// 文字列の'false'は空の文字列ではないので、'真'になります
 !!"false"; // -> true
 !!"true"; // -> true
 ```
