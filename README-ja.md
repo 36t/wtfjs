@@ -76,7 +76,7 @@ $ npm install -g wtfjs
 
 - [💪🏻 動機](#-動機)
 - [✍🏻 表記について](#-表記について)
-- [👀 Examples](#-examples)
+- [👀 サンプルリスト](#-サンプルリスト)
   - [`[]` is equal `![]`](#-is-equal-)
   - [`true` is not equal `![]`, but not equal `[]` too](#true-is-not-equal--but-not-equal--too)
   - [true is false](#true-is-false)
@@ -217,21 +217,27 @@ const foo = function() {};
 const foo = function() {};
 ```
 
-# 👀 Examples
+# 👀 サンプルリスト
 
-## `[]` is equal `![]`
+## `[]`と`![]`は同じ
 
-Array is equal not array:
+<!-- Array is equal not array: -->
+
+配列`[]`は配列ではない`![]`に等しいです。
 
 ```js
 [] == ![]; // -> true
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-The abstract equality operator converts both sides to numbers to compare them, and both sides become the number `0` for different reasons. Arrays are truthy, so on the right, the opposite of a truthy value is `false`, which is then coerced to `0`. On the left, however, an empty array is coerced to a number without becoming a boolean first, and empty arrays are coerced to `0`, despite being truthy.
+<!-- The abstract equality operator converts both sides to numbers to compare them, and both sides become the number `0` for different reasons. Arrays are truthy, so on the right, the opposite of a truthy value is `false`, which is then coerced to `0`. On the left, however, an empty array is coerced to a number without becoming a boolean first, and empty arrays are coerced to `0`, despite being truthy. -->
 
-Here is how this expression simplifies:
+等価演算子`==`は、両辺を数値に暗黙的に型変換して比較します。上記の場合、両辺はそれぞれ違う理由で数値の`0`になります。配列は真偽値なので、右辺では真偽値の反対は`false`であり、これは`0`に暗黙的に型変換されます。しかし左辺では、空の配列は最初に真偽値にならずに数値に暗黙的に型変換されます。空の配列は真偽値であるにもかかわらず`0`になります。
+
+<!-- Here is how this expression simplifies: -->
+
+上記を簡略化すると、次のようになります。
 
 ```js
 +[] == +![];
@@ -240,7 +246,9 @@ Here is how this expression simplifies:
 true;
 ```
 
-See also [`[]` is truthy, but not `true`](#-is-truthy-but-not-true).
+<!-- See also [`[]` is truthy, but not `true`](#-is-truthy-but-not-true). -->
+
+関連：[`[]`は真だが`true`ではない](#-`[]`は真だが`true`ではない)
 
 - [**12.5.9** Logical NOT Operator (`!`)](https://www.ecma-international.org/ecma-262/#sec-logical-not-operator)
 - [**7.2.15** Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison)
