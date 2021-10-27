@@ -146,7 +146,7 @@ $ npm install -g wtfjs
   - [A stringified string](#a-stringified-string)
   - [Non-strict comparison of a number to `true`](#non-strict-comparison-of-a-number-to-true)
 - [📚 Other resources](#-other-resources)
-- [🤝 Supporting](#-supporting)
+- [🤝 支援](#-支援)
 - [🎓 License](#-license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -156,19 +156,34 @@ $ npm install -g wtfjs
 
 # 💪🏻 動機
 
-> Just for fun
+<!-- > Just for fun
+>
+> &mdash; _[**“Just for Fun: The Story of an Accidental Revolutionary”**](https://en.wikipedia.org/wiki/Just_for_Fun), Linus Torvalds_ -->
+
+> ただ楽しんでください。
 >
 > &mdash; _[**“Just for Fun: The Story of an Accidental Revolutionary”**](https://en.wikipedia.org/wiki/Just_for_Fun), Linus Torvalds_
 
-The primary goal of this list is to collect some crazy examples and explain how they work, if possible. Just because it's fun to learn something that we didn't know before.
+<!-- The primary goal of this list is to collect some crazy examples and explain how they work, if possible. Just because it's fun to learn something that we didn't know before. -->
 
-If you are a beginner, you can use these notes to get a deeper dive into JavaScript. I hope these notes will motivate you to spend more time reading the specification.
+このリストの主な目的は、いくつかのクレイジーな例を集めて、可能であればそれらがどのように機能するか説明することです。 今まで知らなかったことを学ぶのは楽しいものです。
 
-If you are a professional developer, you can consider these examples as a great reference for all of the quirks and unexpected edges of our beloved JavaScript.
+<!-- If you are a beginner, you can use these notes to get a deeper dive into JavaScript. I hope these notes will motivate you to spend more time reading the specification. -->
 
-In any case, just read this. You're probably going to find something new.
+あなたがJavaScriptの初心者であれば、本書を使用してJavaScriptをより深く理解できます。本書が、JavaScriptの仕様書を読む際、もっと時間をかけようという動機になれば幸いです。
 
-> **⚠️ Note:** If you enjoy reading this document, please, [consider supporting the author of this collection](#-supporting).
+<!-- If you are a professional developer, you can consider these examples as a great reference for all of the quirks and unexpected edges of our beloved JavaScript. -->
+
+あなたがJavaScriptのプロの開発者であれば、本書の例は、私たちの愛するJavaScriptのすべての癖や予期しない挙動の優れたリファレンスと考えることができます。
+
+<!-- In any case, just read this. You're probably going to find something new. -->
+
+とにかく本書を読んでみてください。きっと何か新しい発見があるはずです。
+
+<!-- > **⚠️ Note:** If you enjoy reading this document, please, [consider supporting the author of this collection](#-supporting). -->
+
+> **⚠️注意：** このドキュメントを読んで楽しむことができたら、[このコレクションの作者を支援を検討してください。](#-支援)
+
 
 # ✍🏻 Notation
 
@@ -2266,7 +2281,7 @@ So this comparison is performed like this:
 - [What the... JavaScript?](https://www.youtube.com/watch?v=2pL28CcEijU) — Kyle Simpsons talk for Forward 2 attempts to “pull out the crazy” from JavaScript. He wants to help you produce cleaner, more elegant, more readable code, then inspire people to contribute to the open source community.
 - [Zeros in JavaScript](http://zero.milosz.ca/) — a comparison table of `==`, `===`, `+` and `*` in JavaScript.
 
-# 🤝 Supporting
+# 🤝 支援
 
 Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy reading it. If you do, please, consider supporting me 🙏.
 
