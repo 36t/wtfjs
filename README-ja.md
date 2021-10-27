@@ -75,7 +75,7 @@ $ npm install -g wtfjs
 # Table of Contents
 
 - [💪🏻 動機](#-動機)
-- [✍🏻 Notation](#-notation)
+- [✍🏻 表記について](#-表記について)
 - [👀 Examples](#-examples)
   - [`[]` is equal `![]`](#-is-equal-)
   - [`true` is not equal `![]`, but not equal `[]` too](#true-is-not-equal--but-not-equal--too)
@@ -185,24 +185,35 @@ $ npm install -g wtfjs
 > **⚠️注意：** このドキュメントを読んで楽しむことができたら、[このコレクションの作者を支援を検討してください。](#-支援)
 
 
-# ✍🏻 Notation
+# ✍🏻 表記について
 
-**`// ->`** is used to show the result of an expression. For example:
+<!-- **`// ->`** is used to show the result of an expression. For example: -->
+
+**`// ->`** は、式の結果を表す場合に使用します。例えば、次のようになります。
 
 ```js
 1 + 1; // -> 2
 ```
 
-**`// >`** means the result of `console.log` or another output. For example:
+<!-- **`// >`** means the result of `console.log` or another output. For example: -->
+
+**`// >`** は、`console.log`の結果やその他の出力の意味で使用します。例えば、次のようになります。
 
 ```js
 console.log("hello, world!"); // > hello, world!
 ```
 
-**`//`** is just a comment used for explanations. Example:
+<!-- **`//`** is just a comment used for explanations. Example: -->
+
+**`//`** は式を説明するコメントに使用します。例えば、次のようになります。
+
+<!-- ```js
+// Assigning a function to foo constant
+const foo = function() {};
+``` -->
 
 ```js
-// Assigning a function to foo constant
+// 定数fooに関数を代入
 const foo = function() {};
 ```
 
