@@ -341,21 +341,25 @@ false == "false"; // -> false
 
 - [**7.2.15** Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison)
 
-## baNaNa
+## baNaNa（バナナ）
 
 ```js
 "b" + "a" + +"a" + "a"; // -> 'baNaNa'
 ```
 
-This is an old-school joke in JavaScript, but remastered. Here's the original one:
+<!-- This is an old-school joke in JavaScript, but remastered. Here's the original one: -->
+
+こののコードはJavaScriptの古いジョークですが、リマスターされています。オリジナルは下記のコードです。
 
 ```js
 "foo" + +"bar"; // -> 'fooNaN'
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-The expression is evaluated as `'foo' + (+'bar')`, which converts `'bar'` to not a number.
+<!-- The expression is evaluated as `'foo' + (+'bar')`, which converts `'bar'` to not a number. -->
+
+式は`'foo' + (+'bar')`として評価し、`'bar'`を数字でないものに変換します。
 
 - [**12.8.3** The Addition Operator (`+`)](https://www.ecma-international.org/ecma-262/#sec-addition-operator-plus)
 - [12.5.6 Unary + Operator](https://www.ecma-international.org/ecma-262/#sec-unary-plus-operator)
