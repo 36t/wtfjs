@@ -446,42 +446,56 @@ JavaScriptの用語で`NaN`と`NaN`は同一値ですが、厳密には同じで
 - [Here are the TC39 specs about Object.is](https://tc39.es/ecma262/#sec-object.is)
 - [Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness) on MDN
 
-## It's a fail
+<!-- ## It's a fail -->
 
-You would not believe, but …
+## 失敗です
+
+<!-- You would not believe, but … -->
+
+結果が信じられないかもしれませんが。。。
 
 ```js
 (![] + [])[+[]] +
   (![] + [])[+!+[]] +
   ([![]] + [][[]])[+!+[] + [+[]]] +
   (![] + [])[!+[] + !+[]];
-// -> 'fail'
+// -> 'fail'（失敗）
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-By breaking that mass of symbols into pieces, we notice that the following pattern occurs often:
+<!-- By breaking that mass of symbols into pieces, we notice that the following pattern occurs often: -->
+
+サンプルコードで多用している記号の塊をバラバラにしてみると、次のパターンが多いことに気がつきます。
 
 ```js
 ![] + []; // -> 'false'
 ![]; // -> false
 ```
 
-So we try adding `[]` to `false`. But due to a number of internal function calls (`binary + Operator` -> `ToPrimitive` -> `[[DefaultValue]]`) we end up converting the right operand to a string:
+<!-- So we try adding `[]` to `false`. But due to a number of internal function calls (`binary + Operator` -> `ToPrimitive` -> `[[DefaultValue]]`) we end up converting the right operand to a string: -->
+
+そこで、 `[]`を `false`に追加してみます。 しかし、いくつかの内部関数の呼びだし（`binary + Operator`->` ToPrimitive`-> `[[DefaultValue]]`）により、結局、右のオペランドを文字列に変換してしまいます。
 
 ```js
 ![] + [].toString(); // 'false'
 ```
 
-Thinking of a string as an array we can access its first character via `[0]`:
+<!-- Thinking of a string as an array we can access its first character via `[0]`: -->
+
+文字列を配列と考えると、`[0]` で一文字目の文字`f`にアクセスできます。
 
 ```js
 "false"[0]; // -> 'f'
 ```
 
-The rest is obvious, but the `i` is tricky. The `i` in `fail` is grabbed by generating the string `'falseundefined'` and grabbing the element on index `['10']`.
+<!-- The rest is obvious, but the `i` is tricky. The `i` in `fail` is grabbed by generating the string `'falseundefined'` and grabbing the element on index `['10']`. -->
 
-More examples:
+ここまでの解説が分かれば、残りの文字（`a`、`l`）は明白です。ただし`i`の文字は厄介です。 `fail`の`i`は、最初に文字列 `'falseundefined'`を生成し、`['10']`で`a`の文字にアクセスしています。
+
+<!-- More examples: -->
+
+その他の例。
 
 ```js
 +![]          // -> 0
