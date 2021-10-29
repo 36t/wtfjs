@@ -364,33 +364,59 @@ false == "false"; // -> false
 - [**12.8.3** The Addition Operator (`+`)](https://www.ecma-international.org/ecma-262/#sec-addition-operator-plus)
 - [12.5.6 Unary + Operator](https://www.ecma-international.org/ecma-262/#sec-unary-plus-operator)
 
-## `NaN` is not a `NaN`
+<!-- ## `NaN` is not a `NaN` -->
+
+## `NaN`は`NaN`ではありません
 
 ```js
 NaN === NaN; // -> false
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-The specification strictly defines the logic behind this behavior:
+<!-- The specification strictly defines the logic behind this behavior: -->
 
-> 1. If `Type(x)` is different from `Type(y)`, return **false**.
+仕様では、この動作のロジックを厳密に定義しています。
+
+<!-- > 1. If `Type(x)` is different from `Type(y)`, return **false**.
 > 2. If `Type(x)` is Number, then
 >    1. If `x` is **NaN**, return **false**.
 >    2. If `y` is **NaN**, return **false**.
 >    3. … … …
 >
+> &mdash; [**7.2.14** Strict Equality Comparison](https://www.ecma-international.org/ecma-262/#sec-strict-equality-comparison) -->
+
+> 1. `Type(x)`が`Type(y)`と異なる場合、**false**を返す
+> 2. `Type(x)`が数字で
+>    1. `x`が**NaN**の場合、**false**を返す
+>    2. `y`が**NaN**の場合、**false**を返す
+>    3. … … …
+>
 > &mdash; [**7.2.14** Strict Equality Comparison](https://www.ecma-international.org/ecma-262/#sec-strict-equality-comparison)
 
-Following the definition of `NaN` from the IEEE:
+
+<!-- Following the definition of `NaN` from the IEEE: -->
+
+IEEEの`NaN`の定義に従っています。
 
 > Four mutually exclusive relations are possible: less than, equal, greater than, and unordered. The last case arises when at least one operand is NaN. Every NaN shall compare unordered with everything, including itself.
 >
 > &mdash; [“What is the rationale for all comparisons returning false for IEEE754 NaN values?”](https://stackoverflow.com/questions/1565164/1573715#1573715) at StackOverflow
 
-## `Object.is()` and `===` weird cases
+<!-->
+TODO: 翻訳
+4つの相互に排他的な関係が可能です：より小さい、等しい、より大きい、および順序付けされていません。 最後のケースは、少なくとも1つのオペランドがNaNの場合に発生します。 すべてのNaNは、それ自体を含むすべてのものと順序付けられていないものを比較するものとします。
 
-`Object.is()` determines if two values have the same value or not. It works similar to the `===` operator but there are a few weird cases:
+less than、equal、greater than、unorderedの4つの相互に排他的な関係が可能です。最後のケースは、少なくとも1つのオペランドがNaNの場合に発生します。 すべてのNaNは、それ自体を含むすべてのものと`順序付けられていないもの(unordered)`を比較するものとします。
+-->
+
+<!-- ## `Object.is()` and `===` weird cases -->
+
+## `Object.is()`と`===`の奇妙な事例
+
+<!-- `Object.is()` determines if two values have the same value or not. It works similar to the `===` operator but there are a few weird cases: -->
+
+`Object.is()`は、 2つの値が[同一値](https://developer.mozilla.org/ja/docs/Web/JavaScript/Equality_comparisons_and_sameness)であるかどうかを判定します．これは厳密等価演算子`===`と似たような働きをしますが，いくつかの奇妙な事例があります．
 
 ```javascript
 Object.is(NaN, NaN); // -> true
@@ -403,13 +429,19 @@ Object.is(NaN, 0 / 0); // -> true
 NaN === 0 / 0; // -> false
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-In JavaScript lingo, `NaN` and `NaN` are the same value but they're not strictly equal. `NaN === NaN` being false is apparently due to historical reasons so it would probably be better to accept it as it is.
+<!-- In JavaScript lingo, `NaN` and `NaN` are the same value but they're not strictly equal. `NaN === NaN` being false is apparently due to historical reasons so it would probably be better to accept it as it is. -->
 
-Similarly, `-0` and `0` are strictly equal, but they're not the same value.
+JavaScriptの用語で`NaN`と`NaN`は同一値ですが、厳密には同じではありません。`NaN === NaN` が`false`なのは歴史的な理由によるものらしいので、そのまま受け入れたほうがいいかもしれません。
 
-For more details about `NaN === NaN`, see the above case.
+<!-- Similarly, `-0` and `0` are strictly equal, but they're not the same value. -->
+
+同様に、`-0`と`0`は厳密には等しいのですが、同一値ではありません。
+
+<!-- For more details about `NaN === NaN`, see the above case. -->
+
+`NaN === NaN`については、前の章を参照してください。
 
 - [Here are the TC39 specs about Object.is](https://tc39.es/ecma262/#sec-object.is)
 - [Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness) on MDN
