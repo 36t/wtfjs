@@ -491,7 +491,7 @@ JavaScriptの用語で`NaN`と`NaN`は同一値ですが、厳密には同じで
 
 <!-- The rest is obvious, but the `i` is tricky. The `i` in `fail` is grabbed by generating the string `'falseundefined'` and grabbing the element on index `['10']`. -->
 
-ここまでの解説が分かれば、残りの文字（`a`、`l`）は明白です。ただし`i`の文字は厄介です。 `fail`の`i`は、最初に文字列 `'falseundefined'`を生成し、`['10']`で`a`の文字にアクセスしています。
+ここまでの解説が分かれば、残りの文字（`a`、`l`）は明白です。ただし`i`の文字は厄介です。 `fail`の`i`は、最初に文字列 `'falseundefined'`を生成し、`['10']`で文字`a`にアクセスしています。
 
 <!-- More examples: -->
 
@@ -511,18 +511,24 @@ JavaScriptの用語で`NaN`と`NaN`は同一値ですが、厳密には同じで
 - [Brainfuck beware: JavaScript is after you!](http://patriciopalladino.com/blog/2012/08/09/non-alphanumeric-javascript.html)
 - [Writing a sentence without using the Alphabet](https://bluewings.github.io/en/writing-a-sentence-without-using-the-alphabet/#weird-javascript-generator) — generate any phrase using JavaScript
 
-## `[]` is truthy, but not `true`
+<!-- ## `[]` is truthy, but not `true` -->
 
-An array is a truthy value, however, it's not equal to `true`.
+## `[]`は真だが`true`ではない
+
+<!-- An array is a truthy value, however, it's not equal to `true`. -->
+
+配列`[]`は真ですが、`true`とは等しくありません。
 
 ```js
 !![]       // -> true
 [] == true // -> false
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-Here are links to the corresponding sections in the ECMA-262 specification:
+<!-- Here are links to the corresponding sections in the ECMA-262 specification: -->
+
+ECMA-262の該当箇所をご覧ください。
 
 - [**12.5.9** Logical NOT Operator (`!`)](https://www.ecma-international.org/ecma-262/#sec-logical-not-operator)
 - [**7.2.15** Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison)
