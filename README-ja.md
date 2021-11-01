@@ -611,21 +611,32 @@ document.all == null; // -> true
 > &mdash; [“Obsolete features - document.all”](https://html.spec.whatwg.org/multipage/obsolete.html#dom-document-all) at WhatWG - HTML spec<br>
 > &mdash; [“Chapter 4 - ToBoolean - Falsy values”](https://github.com/getify/You-Dont-Know-JS/blob/0d79079b61dad953bbfde817a5893a49f7e889fb/types%20%26%20grammar/ch4.md#falsy-objects) at YDKJS - Types & Grammar
 
-## Minimal value is greater than zero
+<!-- ## Minimal value is greater than zero -->
 
-`Number.MIN_VALUE` is the smallest number, which is greater than zero:
+## 最小値は0より大きい
+
+<!-- `Number.MIN_VALUE` is the smallest number, which is greater than zero: -->
+
+`Number.MIN_VALUE`は、0より大きい最小の数値である。
 
 ```js
 Number.MIN_VALUE > 0; // -> true
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-> `Number.MIN_VALUE` is `5e-324`, i.e. the smallest positive number that can be represented within float precision, i.e. that's as close as you can get to zero. It defines the best resolution that floats can give you.
+<!-- > `Number.MIN_VALUE` is `5e-324`, i.e. the smallest positive number that can be represented within float precision, i.e. that's as close as you can get to zero. It defines the best resolution that floats can give you.
 >
 > Now the overall smallest value is `Number.NEGATIVE_INFINITY` although it's not really numeric in a strict sense.
 >
-> &mdash; [“Why is `0` less than `Number.MIN_VALUE` in JavaScript?”](https://stackoverflow.com/questions/26614728/why-is-0-less-than-number-min-value-in-javascript) at StackOverflow
+> &mdash; [“Why is `0` less than `Number.MIN_VALUE` in JavaScript?”](https://stackoverflow.com/questions/26614728/why-is-0-less-than-number-min-value-in-javascript) at StackOverflow -->
+
+
+> `Number.MIN_VALUE`は`5e-324`、すなわち浮動小数点の精度で表すことができる最も小さな正の数値です。つまり、0に限りなく近い値です。これは浮動小数点が提供できる最高の解像度を定義します。
+>
+> 厳密な意味では数値ではありませんが、全体としての最も小さい数値は`Number.NEGATIVE_INFINITY`になります。
+>
+> &mdash; [“Why is `0` less than `Number.MIN_VALUE` in JavaScript?”](https://stackoverflow.com/questions/26614728/why-is-0-less-than-number-min-value-in-javascript) at StackOve
 
 - [**20.1.2.9** Number.MIN_VALUE](https://www.ecma-international.org/ecma-262/#sec-number.min_value)
 
