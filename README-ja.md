@@ -528,63 +528,87 @@ JavaScriptの用語で`NaN`と`NaN`は同一値ですが、厳密には同じで
 
 <!-- Here are links to the corresponding sections in the ECMA-262 specification: -->
 
-ECMA-262の該当箇所をご覧ください。
+ECMA-262の仕様をご覧ください。
 
 - [**12.5.9** Logical NOT Operator (`!`)](https://www.ecma-international.org/ecma-262/#sec-logical-not-operator)
 - [**7.2.15** Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison)
 
-## `null` is falsy, but not `false`
+<!-- ## `null` is falsy, but not `false` -->
 
-Despite the fact that `null` is a falsy value, it's not equal to `false`.
+## `null`は偽だが`false`ではない
+
+<!-- Despite the fact that `null` is a falsy value, it's not equal to `false`. -->
+
+`null`は偽の値であるにもかかわらず、`false`とは等しくありません。
 
 ```js
 !!null; // -> false
 null == false; // -> false
 ```
 
-At the same time, other falsy values, like `0` or `''` are equal to `false`.
+<!-- At the same time, other falsy values, like `0` or `''` are equal to `false`. -->
+
+同時に、`0`や`''`のような他の偽の値は、`false`と等しいです。
 
 ```js
 0 == false; // -> true
 "" == false; // -> true
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-The explanation is the same as for previous example. Here's the corresponding link:
+<!-- The explanation is the same as for previous example. Here's the corresponding link: -->
+
+[先程の例](#`[]`は真だが`true`ではない)と同じ解説になります。
 
 - [**7.2.15** Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison)
 
-## `document.all` is an object, but it is undefined
+<!-- ## `document.all` is an object, but it is undefined -->
 
-> ⚠️ This is part of the Browser API and won't work in a Node.js environment ⚠️
+## `document.all` はオブジェクトだが未定義
 
-Despite the fact that `document.all` is an array-like object and it gives access to the DOM nodes in the page, it responds to the `typeof` function as `undefined`.
+<!-- > ⚠️ This is part of the Browser API and won't work in a Node.js environment ⚠️ -->
+
+> ⚠️ これはBrowser APIの一部で、Node.js環境では動作しません ⚠️
+
+<!-- Despite the fact that `document.all` is an array-like object and it gives access to the DOM nodes in the page, it responds to the `typeof` function as `undefined`. -->
+
+`document.all`は配列のようなオブジェクトで、ページ内のDOMノードにアクセスできるにもかかわらず、`typeof`演算子を使用すると`undefined`を返します。
 
 ```js
 document.all instanceof Object; // -> true
 typeof document.all; // -> 'undefined'
 ```
 
-At the same time, `document.all` is not equal to `undefined`.
+<!-- At the same time, `document.all` is not equal to `undefined`. -->
+
+同時に、`document.all`は`undefined`と等しくありません。
 
 ```js
 document.all === undefined; // -> false
 document.all === null; // -> false
 ```
 
-But at the same time:
+<!-- But at the same time: -->
+
+しかし、同時に`document.all`は`null`と等しいです。
 
 ```js
 document.all == null; // -> true
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-> `document.all` used to be a way to access DOM elements, in particular with old versions of IE. While it has never been a standard it was broadly used in the old age JS code. When the standard progressed with new APIs (such as `document.getElementById`) this API call became obsolete and the standard committee had to decide what to do with it. Because of its broad use they decided to keep the API but introduce a willful violation of the JavaScript specification.
+<!-- > `document.all` used to be a way to access DOM elements, in particular with old versions of IE. While it has never been a standard it was broadly used in the old age JS code. When the standard progressed with new APIs (such as `document.getElementById`) this API call became obsolete and the standard committee had to decide what to do with it. Because of its broad use they decided to keep the API but introduce a willful violation of the JavaScript specification.
 > The reason why it responds to `false` when using the [Strict Equality Comparison](https://www.ecma-international.org/ecma-262/#sec-strict-equality-comparison) with `undefined` while `true` when using the [Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison) is due to the willful violation of the specification that explicitly allows that.
 >
 > &mdash; [“Obsolete features - document.all”](https://html.spec.whatwg.org/multipage/obsolete.html#dom-document-all) at WhatWG - HTML spec
+> &mdash; [“Chapter 4 - ToBoolean - Falsy values”](https://github.com/getify/You-Dont-Know-JS/blob/0d79079b61dad953bbfde817a5893a49f7e889fb/types%20%26%20grammar/ch4.md#falsy-objects) at YDKJS - Types & Grammar -->
+
+> `document.all` は、特に古いバージョンのInternet Explorerで、DOM要素にアクセスするための方法でした。これはInternet Explorerの独自実装で、古い時代のJSコードで広く使われていました。規格が新しいAPI（`document.getElementById`など）の登場で、このAPIは時代遅れになり、規格委員会はこれをどうするか決めなければなりませんでした。広く使われていたため、APIを残すことにしましたが、JavaScriptの仕様に対する故意の違反を導入することになりました。
+>  [厳密等価演算子（`===`）](https://www.ecma-international.org/ecma-262/#sec-strict-equality-comparison)を用いた`undefined`との比較で`false`を返し、[等価演算子 (`==`) ](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison)を用いた`undefined`との比較で`true`を返す理由は、それを明示的に許可する仕様に故意に違反しているためです。
+>
+> &mdash; [“Obsolete features - document.all”](https://html.spec.whatwg.org/multipage/obsolete.html#dom-document-all) at WhatWG - HTML spec<br>
 > &mdash; [“Chapter 4 - ToBoolean - Falsy values”](https://github.com/getify/You-Dont-Know-JS/blob/0d79079b61dad953bbfde817a5893a49f7e889fb/types%20%26%20grammar/ch4.md#falsy-objects) at YDKJS - Types & Grammar
 
 ## Minimal value is greater than zero
