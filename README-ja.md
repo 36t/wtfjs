@@ -775,9 +775,13 @@ TypeError: Super constructor null of Foo is not a constructor
 ("1,2,34,5,6");
 ```
 
-## Trailing commas in array
+<!-- ## Trailing commas in array -->
 
-You've created an array with 4 empty elements. Despite all, you'll get an array with three elements, because of trailing commas:
+## 末尾のカンマ
+
+<!-- You've created an array with 4 empty elements. Despite all, you'll get an array with three elements, because of trailing commas: -->
+
+次のコードは4つの空の要素を持つ配列を作成しました。しかし末尾にカンマが存在するため、3つの要素を持つ配列になってしまいます。
 
 ```js
 let a = [, , ,];
@@ -785,11 +789,15 @@ a.length; // -> 3
 a.toString(); // -> ',,'
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-> **Trailing commas** (sometimes called "final commas") can be useful when adding new elements, parameters, or properties to JavaScript code. If you want to add a new property, you can simply add a new line without modifying the previously last line if that line already uses a trailing comma. This makes version-control diffs cleaner and editing code might be less troublesome.
+<!-- > **Trailing commas** (sometimes called "final commas") can be useful when adding new elements, parameters, or properties to JavaScript code. If you want to add a new property, you can simply add a new line without modifying the previously last line if that line already uses a trailing comma. This makes version-control diffs cleaner and editing code might be less troublesome.
 >
-> &mdash; [Trailing commas](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas) at MDN
+> &mdash; [Trailing commas](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas) at MDN -->
+
+> **末尾のカンマ**（「最後のカンマ」と呼ばれることもあります）は、JavaScriptのコードに新しい要素、パラメータ、プロパティを追加する際に役立ちます。 新しいプロパティを追加する場合、その行ですでに末尾のカンマが使用されていれば、単に新しい行を追加するだけで済みます。これにより、バージョン管理の差分がきれいになり、コードの編集の手間が減るかもしれません。
+>
+> &mdash; [末尾のカンマ](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Trailing_commas) at MDN
 
 ## Array equality is a monster
 
