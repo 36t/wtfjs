@@ -744,26 +744,32 @@ TypeError: Super constructor null of Foo is not a constructor
 
 - [An explanation of this issue](https://github.com/denysdovhan/wtfjs/pull/102#discussion_r259143582) by [@geekjob](https://github.com/geekjob)
 
-## Adding arrays
+<!-- ## Adding arrays -->
 
-What if you try to add two arrays?
+## 配列の追加
+
+<!-- What if you try to add two arrays? -->
+
+2つの配列を足すとどうなるでしょうか？
 
 ```js
 [1, 2, 3] + [4, 5, 6]; // -> '1,2,34,5,6'
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-The concatenation happens. Step-by-step, it looks like this:
+<!-- The concatenation happens. Step-by-step, it looks like this: -->
+
+連結が起こります。順を追って説明すると、次のようになります。
 
 ```js
 [1, 2, 3] +
   [4, 5, 6][
-    // call toString()
+    // toString()メソッドが呼び出される
     (1, 2, 3)
   ].toString() +
   [4, 5, 6].toString();
-// concatenation
+// 連結
 "1,2,3" + "4,5,6";
 // ->
 ("1,2,34,5,6");
