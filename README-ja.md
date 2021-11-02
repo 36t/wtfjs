@@ -640,14 +640,20 @@ Number.MIN_VALUE > 0; // -> true
 
 - [**20.1.2.9** Number.MIN_VALUE](https://www.ecma-international.org/ecma-262/#sec-number.min_value)
 
-## function is not a function
+<!-- ## function is not a function -->
 
-> ⚠️ A bug present in V8 v5.5 or lower (Node.js <=7) ⚠️
+## 関数は関数ではない
 
-All of you know about the annoying _undefined is not a function_, but what about this?
+<!-- > ⚠️ A bug present in V8 v5.5 or lower (Node.js <=7) ⚠️ -->
+
+> ⚠️ V8 v5.5以下に存在するバグになります（Node.js <= 7）⚠️
+
+<!-- All of you know about the annoying _undefined is not a function_, but what about this? -->
+
+_未定義は関数ではない_ という厄介なものをご存知だと思いますが、これはどうでしょうか？
 
 ```js
-// Declare a class which extends null
+// nullを継承するクラスの宣言
 class Foo extends null {}
 // -> [Function: Foo]
 
@@ -656,13 +662,19 @@ new Foo() instanceof null;
 // >     at … … …
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-This is not a part of the specification. It's just a bug that has now been fixed, so there shouldn't be a problem with it in the future.
+<!-- This is not a part of the specification. It's just a bug that has now been fixed, so there shouldn't be a problem with it in the future. -->
 
-### Super constructor null of Foo is not a constructor
+これは仕様の一部ではなく、単なるバグで現在は修正されているので、今後は問題がないはずです。
 
-It's continuation of story with previous bug in modern environment (tested with Chrome 71 and Node.js v11.8.0).
+<!-- ### Super constructor null of Foo is not a constructor -->
+
+### Fooのスーパーコンストラクタnullはコンストラクタではない
+
+<!-- It's continuation of story with previous bug in modern environment (tested with Chrome 71 and Node.js v11.8.0). -->
+
+このバグを、最新の環境（Chrome 71およびNode.js v11.8.0でテスト）で確認しました。
 
 ```js
 class Foo extends null {}
@@ -670,21 +682,28 @@ new Foo() instanceof null;
 // > TypeError: Super constructor null of Foo is not a constructor
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-This is not a bug because:
+<!-- This is not a bug because: -->
+
+これはバグではありません。
 
 ```js
 Object.getPrototypeOf(Foo.prototype); // -> null
 ```
 
-If the class has no constructor the call from prototype chain. But in the parent has no constructor. Just in case, I’ll clarify that `null` is an object:
+<!-- If the class has no constructor the call from prototype chain. But in the parent has no constructor. Just in case, I’ll clarify that `null` is an object: -->
+
+クラスにコンストラクタがない場合、プロトタイプチェーンから呼び出します。しかし、親クラスにはコンストラクタがありません。念のため、`null`はオブジェクトであることを明記しておきます。
 
 ```js
 typeof null === "object";
 ```
 
-Therefore, you can inherit from it (although in the world of the OOP for such terms would have beaten me). So you can't call the null constructor. If you change this code:
+<!-- Therefore, you can inherit from it (although in the world of the OOP for such terms would have beaten me). So you can't call the null constructor. If you change this code: -->
+
+<!-- TODO: -->
+そのため、継承が可能です（このような用語のOOPの世界では、私は負けてしまいますが）。なので、nullのコンストラクタを呼び出すことはできません。このコードを変更してみます。
 
 ```js
 class Foo extends null {
@@ -694,13 +713,17 @@ class Foo extends null {
 }
 ```
 
-You see the error:
+<!-- You see the error: -->
+
+エラーが表示されます。
 
 ```
 ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
 ```
 
-And if you add `super`:
+<!-- And if you add `super`: -->
+
+そして、`super`を使用すると。
 
 ```js
 class Foo extends null {
@@ -711,7 +734,9 @@ class Foo extends null {
 }
 ```
 
-JS throws an error:
+<!-- JS throws an error: -->
+
+JavaScriptがエラーを起こします。
 
 ```
 TypeError: Super constructor null of Foo is not a constructor
