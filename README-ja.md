@@ -723,7 +723,7 @@ ReferenceError: Must call super constructor in derived class before accessing 't
 
 <!-- And if you add `super`: -->
 
-そして、`super`を使用すると。
+そして、`super`を使用すると、
 
 ```js
 class Foo extends null {
@@ -799,9 +799,13 @@ a.toString(); // -> ',,'
 >
 > &mdash; [末尾のカンマ](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Trailing_commas) at MDN
 
-## Array equality is a monster
+<!-- ## Array equality is a monster -->
 
-Array equality is a monster in JS, as you can see below:
+## 配列の比較は化け物
+
+<!-- Array equality is a monster in JS, as you can see below: -->
+
+次のように、JavaScriptの配列の比較は化け物のようです。
 
 ```js
 [] == ''   // -> true
@@ -829,28 +833,45 @@ Array equality is a monster in JS, as you can see below:
 [[[[[[ undefined ]]]]]] == '' // true
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-You should watch very carefully for the above examples! The behaviour is described in section [**7.2.15** Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison) of the specification.
+<!-- You should watch very carefully for the above examples! The behaviour is described in section [**7.2.15** Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison) of the specification. -->
 
-## `undefined` and `Number`
+上記の例は非常に注意して見る必要があります！この動作は、仕様の[**7.2.15** Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison)に記載されています。
 
-If we don't pass any arguments into the `Number` constructor, we'll get `0`. The value `undefined` is assigned to formal arguments when there are no actual arguments, so you might expect that `Number` without arguments takes `undefined` as a value of its parameter. However, when we pass `undefined`, we will get `NaN`.
+<!-- ## `undefined` and `Number` -->
+
+## `undefined`と`Number`
+
+<!-- If we don't pass any arguments into the `Number` constructor, we'll get `0`. The value `undefined` is assigned to formal arguments when there are no actual arguments, so you might expect that `Number` without arguments takes `undefined` as a value of its parameter. However, when we pass `undefined`, we will get `NaN`. -->
+
+
+`Number`のコンストラクタに何も引数を渡さなければ`0`を返します。
+`undefined`は実際の引数がないときに形式的な引数に割り当てられるので、引数のない`Number`は引数の値として`undefined`を取ると思うかもしれません。
+しかし、引数に`undefined`を渡すと`NaN`が返ってきます。
 
 ```js
 Number(); // -> 0
 Number(undefined); // -> NaN
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-According to the specification:
+<!-- According to the specification: -->
 
-1. If no arguments were passed to this function's invocation, let `n` be `+0`.
+仕様によると、
+
+<!-- 1. If no arguments were passed to this function's invocation, let `n` be `+0`.
 2. Else, let `n` be ? `ToNumber(value)`.
-3. In case of `undefined`, `ToNumber(undefined)` should return `NaN`.
+3. In case of `undefined`, `ToNumber(undefined)` should return `NaN`. -->
 
-Here's the corresponding section:
+1. `Number`の呼び出し時、引数が渡されなかった場合、引数`n`は`+0`とします。
+2. そうでなければ`n`は`ToNumber(value)` となります。
+3. 引数が`undefined`の場合、`ToNumber(undefined)` は`NaN` を返さなくてはなりません。
+
+<!-- Here's the corresponding section: -->
+
+仕様の該当箇所はこちらです。
 
 - [**20.1.1** The Number Constructor](https://www.ecma-international.org/ecma-262/#sec-number-constructor)
 - [**7.1.3** ToNumber(`argument`)](https://www.ecma-international.org/ecma-262/#sec-tonumber)
