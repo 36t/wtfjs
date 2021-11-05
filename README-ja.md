@@ -973,38 +973,56 @@ parseInt(1 / 1999999); // -> 5
 
 **💡 解説** `ParseInt`は文字列の引数を取り、指定された基数の整数を返します。また、`ParseInt`は文字列の引数に含まれる最初の非数字以降をすべて除外します。`0.000001`は文字列`"0.000001"`に変換され、`parseInt`は`0`を返します。`0.0000001`が文字列に変換されると`"1e-7"`として扱われるので，`parseInt`は`1`を返します。`1/1999999`は `5.00000250000125e-7`として解析され，`parseInt` は`5`を返します。
 
-## Math with `true` and `false`
+<!-- ## Math with `true` and `false` -->
 
-Let's do some math:
+## `true`と`false`を使用した数学
+
+<!-- Let's do some math: -->
+
+ちょっと計算してみましょう。
 
 ```js
 true + true; // -> 2
 (true + true) * (true + true) - true; // -> 3
 ```
 
-Hmmm… 🤔
+<!-- Hmmm… 🤔 -->
 
-### 💡 Explanation:
+うーん 🤔
 
-We can coerce values to numbers with the `Number` constructor. It's quite obvious that `true` will be coerced to `1`:
+### 💡 解説
+
+<!-- We can coerce values to numbers with the `Number` constructor. It's quite obvious that `true` will be coerced to `1`: -->
+
+数値を数字に変換するには、`Number`コンストラクタを使用します。`Number`を使用して`true`を変換した場合、`1`に変換されることは明らかです。
 
 ```js
 Number(true); // -> 1
 ```
 
-The unary plus operator attempts to convert its value into a number. It can convert string representations of integers and floats, as well as the non-string values `true`, `false`, and `null`. If it cannot parse a particular value, it will evaluate to `NaN`. That means we can coerce `true` to `1` easier:
+<!-- The unary plus operator attempts to convert its value into a number. It can convert string representations of integers and floats, as well as the non-string values `true`, `false`, and `null`. If it cannot parse a particular value, it will evaluate to `NaN`. That means we can coerce `true` to `1` easier: -->
+
+単項プラス演算子`+`は、対象の値を数値に変換しようとします。整数や浮動小数点の文字列表現や、文字列以外の値である`true`、`false`、`null`を変換できます。特定の値を解析できない場合は、`NaN`と評価されます。つまり、`true`を`1`に変換するのは簡単です。
 
 ```js
 +true; // -> 1
 ```
 
-When you're performing addition or multiplication, the `ToNumber` method is invoked. According to the specification, this method returns:
+<!-- When you're performing addition or multiplication, the `ToNumber` method is invoked. According to the specification, this method returns: -->
 
-> If `argument` is **true**, return **1**. If `argument` is **false**, return **+0**.
+加算や乗算を行う際には、`ToNumber`メソッドが呼び出されます。仕様によると、このメソッドは以下を返します。
 
-That's why we can add boolean values as regular numbers and get correct results.
+<!-- > If `argument` is **true**, return **1**. If `argument` is **false**, return **+0**. -->
 
-Corresponding sections:
+> `引数`が**true**の場合、**1**を返す。`引数`が**false**の場合、**+0**を返す。
+
+<!-- That's why we can add boolean values as regular numbers and get correct results. -->
+
+そのため、ブーリアンの値を通常の数値として追加しても、正しい結果が得られるのです。
+
+<!-- Corresponding sections: -->
+
+対応するセクション：
 
 - [**12.5.6** Unary `+` Operator](https://www.ecma-international.org/ecma-262/#sec-unary-plus-operator)
 - [**12.8.3** The Addition Operator (`+`)](https://www.ecma-international.org/ecma-262/#sec-addition-operator-plus)
