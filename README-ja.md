@@ -876,18 +876,26 @@ Number(undefined); // -> NaN
 - [**20.1.1** The Number Constructor](https://www.ecma-international.org/ecma-262/#sec-number-constructor)
 - [**7.1.3** ToNumber(`argument`)](https://www.ecma-international.org/ecma-262/#sec-tonumber)
 
-## `parseInt` is a bad guy
+<!-- ## `parseInt` is a bad guy -->
 
-`parseInt` is famous by its quirks:
+## `parseInt`は悪いヤツ
+
+<!-- `parseInt` is famous by its quirks: -->
+
+`parseInt`は奇妙な癖で有名です。
 
 ```js
 parseInt("f*ck"); // -> NaN
 parseInt("f*ck", 16); // -> 15
 ```
 
-**💡 Explanation:** This happens because `parseInt` will continue parsing character-by-character until it hits a character it doesn't know. The `f` in `'f*ck'` is the hexadecimal digit `15`.
+<!-- **💡 Explanation:** This happens because `parseInt` will continue parsing character-by-character until it hits a character it doesn't know. The `f` in `'f*ck'` is the hexadecimal digit `15`. -->
 
-Parsing `Infinity` to integer is something…
+**💡 解説** これは、`parseInt`が知らない文字にヒットするまで1文字ずつ解析を続けるために発生します。`'f*ck'`の`f`は16進数の`15`です。
+
+<!-- Parsing `Infinity` to integer is something… -->
+
+`Infinity`を整数に解析するのは、どうなんだろう。。。
 
 ```js
 //
@@ -908,36 +916,52 @@ parseInt("Infinity", 36); // -> 1461559270678...
 parseInt("Infinity", 37); // -> NaN
 ```
 
-Be careful with parsing `null` too:
+<!-- Be careful with parsing `null` too: -->
+
+`null`の解析にも注意が必要です。
 
 ```js
 parseInt(null, 24); // -> 23
 ```
 
-**💡 Explanation:**
+<!-- **💡 Explanation:** -->
 
-> It's converting `null` to the string `"null"` and trying to convert it. For radixes 0 through 23, there are no numerals it can convert, so it returns NaN. At 24, `"n"`, the 14th letter, is added to the numeral system. At 31, `"u"`, the 21st letter, is added and the entire string can be decoded. At 37 on there is no longer any valid numeral set that can be generated and `NaN` is returned.
+**💡 解説**
+
+<!-- > It's converting `null` to the string `"null"` and trying to convert it. For radixes 0 through 23, there are no numerals it can convert, so it returns NaN. At 24, `"n"`, the 14th letter, is added to the numeral system. At 31, `"u"`, the 21st letter, is added and the entire string can be decoded. At 37 on there is no longer any valid numeral set that can be generated and `NaN` is returned.
+>
+> &mdash; [“parseInt(null, 24) === 23… wait, what?”](https://stackoverflow.com/questions/6459758/parseintnull-24-23-wait-what) at StackOverflow -->
+
+> `null`をまずは文字列`"null"`に変換して、基数に変換しようとしています。0から23までの基数では、変換できる数字がないので、NaNを返します。24では、14番目の文字である`"n"`が数学的記数法に追加されます。31では、21番目の文字である`"u"`が追加され、文字列全体をデコードできます。37以降では、生成できる有効な数字がなくなり`NaN`が返されます。
 >
 > &mdash; [“parseInt(null, 24) === 23… wait, what?”](https://stackoverflow.com/questions/6459758/parseintnull-24-23-wait-what) at StackOverflow
 
-Don't forget about octals:
+<!-- Don't forget about octals: -->
+
+忘れてはいけないのが8進法です。
 
 ```js
 parseInt("06"); // 6
-parseInt("08"); // 8 if support ECMAScript 5
-parseInt("08"); // 0 if not support ECMAScript 5
+parseInt("08"); // 8 ECMAScript 5をサポートしている場合
+parseInt("08"); // 0 ECMAScript 5をサポートしていない場合
 ```
 
-**💡 Explanation:** If the input string begins with "0", radix is eight (octal) or 10 (decimal). Exactly which radix is chosen is implementation-dependent. ECMAScript 5 specifies that 10 (decimal) is used, but not all browsers support this yet. For this reason always specify a radix when using `parseInt`.
+<!-- **💡 Explanation:** If the input string begins with "0", radix is eight (octal) or 10 (decimal). Exactly which radix is chosen is implementation-dependent. ECMAScript 5 specifies that 10 (decimal) is used, but not all browsers support this yet. For this reason always specify a radix when using `parseInt`. -->
 
-`parseInt` always convert input to string:
+**💡 解説** 入力文字列が"0"で始まる場合、基数は8（8進法）または10（10進法）となります。どの基数を選択するかは、正確にはブラウザの実装に依存します。ECMAScript 5では10（10進法）を採用していますが、すべてのブラウザがまだECMAScript 5をサポートしているわけではありません。このため、`parseInt`を使用するときは、必ず基数を指定してください。
+
+<!-- `parseInt` always convert input to string: -->
+
+`parseInt` は、常に入力を文字列に変換します。
 
 ```js
 parseInt({ toString: () => 2, valueOf: () => 1 }); // -> 2
 Number({ toString: () => 2, valueOf: () => 1 }); // -> 1
 ```
 
-Be careful while parsing floating point values
+<!-- Be careful while parsing floating point values -->
+
+浮動小数点値の解析時の注意点
 
 ```js
 parseInt(0.000001); // -> 0
@@ -945,7 +969,9 @@ parseInt(0.0000001); // -> 1
 parseInt(1 / 1999999); // -> 5
 ```
 
-**💡 Explanation:** `ParseInt` takes a string argument and returns an integer of the specified radix. `ParseInt` also strips anything after and including the first non-digit in the string parameter. `0.000001` is converted to a string `"0.000001"` and the `parseInt` returns `0`. When `0.0000001` is converted to a string it is treated as `"1e-7"` and hence `parseInt` returns `1`. `1/1999999` is interpreted as `5.00000250000125e-7` and `parseInt` returns `5`.
+<!-- **💡 Explanation:** `ParseInt` takes a string argument and returns an integer of the specified radix. `ParseInt` also strips anything after and including the first non-digit in the string parameter. `0.000001` is converted to a string `"0.000001"` and the `parseInt` returns `0`. When `0.0000001` is converted to a string it is treated as `"1e-7"` and hence `parseInt` returns `1`. `1/1999999` is interpreted as `5.00000250000125e-7` and `parseInt` returns `5`. -->
+
+**💡 解説** `ParseInt`は文字列の引数を取り、指定された基数の整数を返します。また、`ParseInt`は文字列の引数に含まれる最初の非数字以降をすべて除外します。`0.000001`は文字列`"0.000001"`に変換され、`parseInt`は`0`を返します。`0.0000001`が文字列に変換されると`"1e-7"`として扱われるので，`parseInt`は`1`を返します。`1/1999999`は `5.00000250000125e-7`として解析され，`parseInt` は`5`を返します。
 
 ## Math with `true` and `false`
 
