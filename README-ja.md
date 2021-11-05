@@ -1022,26 +1022,35 @@ Number(true); // -> 1
 
 <!-- Corresponding sections: -->
 
+<!-- TODO: -->
 対応するセクション：
 
 - [**12.5.6** Unary `+` Operator](https://www.ecma-international.org/ecma-262/#sec-unary-plus-operator)
 - [**12.8.3** The Addition Operator (`+`)](https://www.ecma-international.org/ecma-262/#sec-addition-operator-plus)
 - [**7.1.3** ToNumber(`argument`)](https://www.ecma-international.org/ecma-262/#sec-tonumber)
 
-## HTML comments are valid in JavaScript
+<!-- ## HTML comments are valid in JavaScript -->
 
-You will be impressed, but `<!--` (which is known as HTML comment) is a valid comment in JavaScript.
+## HTMLのコメントはJavaScriptで有効
+
+<!-- You will be impressed, but `<!--` (which is known as HTML comment) is a valid comment in JavaScript. -->
+
+感動すると思いますが、`<!--`（HTMLのコメントとして知られています）は、JavaScriptでは有効なコメントです。
 
 ```js
-// valid comment
+// 有効なコメント
 <!-- valid comment too
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-Impressed? HTML-like comments were intended to allow browsers that didn't understand the `<script>` tag to degrade gracefully. These browsers, e.g. Netscape 1.x are no longer popular. So there is really no point in putting HTML comments in your script tags anymore.
+<!-- Impressed? HTML-like comments were intended to allow browsers that didn't understand the `<script>` tag to degrade gracefully. These browsers, e.g. Netscape 1.x are no longer popular. So there is really no point in putting HTML comments in your script tags anymore. -->
 
-Since Node.js is based on the V8 engine, HTML-like comments are supported by the Node.js runtime too. Moreover, they're a part of the specification:
+感動しましたか？HTMlのコメントは、`<script>`タグを理解できないブラウザが支障をきたさないよう、HTMLのコメントを囲んだ部分を機能させないことを目的としています。対象のブラウザ、例えばNetscape1.xなどは、もう普及していません。ですから、HTMLのコメントをscriptタグに入れる意味はもうありません
+
+<!-- Since Node.js is based on the V8 engine, HTML-like comments are supported by the Node.js runtime too. Moreover, they're a part of the specification: -->
+
+Node.jsはV8エンジンをベースにしているので、HTMLのコメントはNode.jsのランタイムでもサポートされています。さらに、それらは仕様の一部でもあります。
 
 - [**B.1.3** HTML-like Comments](https://www.ecma-international.org/ecma-262/#sec-html-like-comments)
 
