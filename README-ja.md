@@ -1076,7 +1076,9 @@ typeof NaN; // -> 'number'
 - [**12.5.5** The `typeof` Operator](https://www.ecma-international.org/ecma-262/#sec-typeof-operator)
 - [**12.10.4** Runtime Semantics: InstanceofOperator(`O`,`C`)](https://www.ecma-international.org/ecma-262/#sec-instanceofoperator)
 
-## `[]` and `null` are objects
+<!-- ## `[]` and `null` are objects -->
+
+## `[]`と`null`はオブジェクト
 
 ```js
 typeof []; // -> 'object'
@@ -1086,15 +1088,21 @@ typeof null; // -> 'object'
 null instanceof Object; // false
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-The behavior of `typeof` operator is defined in this section of the specification:
+<!-- The behavior of `typeof` operator is defined in this section of the specification: -->
+
+`typeof`演算子の挙動は、仕様の次の章で定義されています。
 
 - [**12.5.5** The `typeof` Operator](https://www.ecma-international.org/ecma-262/#sec-typeof-operator)
 
-According to the specification, the `typeof` operator returns a string according to [Table 35: `typeof` Operator Results](https://www.ecma-international.org/ecma-262/#table-35). For `null`, ordinary, standard exotic and non-standard exotic objects, which do not implement `[[Call]]`, it returns the string `"object"`.
+<!-- According to the specification, the `typeof` operator returns a string according to [Table 35: `typeof` Operator Results](https://www.ecma-international.org/ecma-262/#table-35). For `null`, ordinary, standard exotic and non-standard exotic objects, which do not implement `[[Call]]`, it returns the string `"object"`. -->
 
-However, you can check the type of an object by using the `toString` method.
+仕様によると、`typeof`演算子は[Table 35: `typeof` Operator Results](https://www.ecma-international.org/ecma-262/#table-35)に従って文字列を返します。`null`、普通のオブジェクト、標準的なエキゾチックオブジェクト、非標準的なエキゾチックなオブジェクトのうち、`[[Call]]`を実装していないものについては、`"object"`という文字列を返します。
+
+<!-- However, you can check the type of an object by using the `toString` method. -->
+
+しかし，オブジェクトの型を確認するには，`toString`メソッドを使います。
 
 ```js
 Object.prototype.toString.call([]);
