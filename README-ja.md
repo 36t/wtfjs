@@ -1137,22 +1137,32 @@ Object.prototype.toString.call(null);
 - [**6.1.6** The Number Type](https://www.ecma-international.org/ecma-262/#sec-ecmascript-language-types-number-type)
 - [IEEE 754](https://ja.wikipedia.org/wiki/IEEE_754) Wikipedia（日本語）
 
-## Precision of `0.1 + 0.2`
+<!-- ## Precision of `0.1 + 0.2` -->
 
-A well-known joke. An addition of `0.1` and `0.2` is deadly precise:
+## `0.1 + 0.2`の精度
+
+<!-- A well-known joke. An addition of `0.1` and `0.2` is deadly precise: -->
+
+よくあるジョークです。`0.1`と`0.2`の足し算は、死ぬほど正確です。
 
 ```js
 0.1 + 0.2; // -> 0.30000000000000004
 0.1 + 0.2 === 0.3; // -> false
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-The answer for the [”Is floating point math broken?”](https://stackoverflow.com/questions/588004/is-floating-point-math-broken) question on StackOverflow:
+<!-- The answer for the [”Is floating point math broken?”](https://stackoverflow.com/questions/588004/is-floating-point-math-broken) question on StackOverflow: -->
 
-> The constants `0.2` and `0.3` in your program will also be approximations to their true values. It happens that the closest `double` to `0.2` is larger than the rational number `0.2` but that the closest `double` to `0.3` is smaller than the rational number `0.3`. The sum of `0.1` and `0.2` winds up being larger than the rational number `0.3` and hence disagreeing with the constant in your code.
+次はStackOverflowの[”Is floating point math broken?”](https://stackoverflow.com/questions/588004/is-floating-point-math-broken)の質問に対する回答です。
 
-This problem is so known that there is even a website called [0.30000000000000004.com](http://0.30000000000000004.com/). It occurs in every language that uses floating-point math, not just JavaScript.
+<!-- > The constants `0.2` and `0.3` in your program will also be approximations to their true values. It happens that the closest `double` to `0.2` is larger than the rational number `0.2` but that the closest `double` to `0.3` is smaller than the rational number `0.3`. The sum of `0.1` and `0.2` winds up being larger than the rational number `0.3` and hence disagreeing with the constant in your code. -->
+
+> プログラム中の定数`0.2`と`0.3`も、真の値に近似の値になります。`0.2`に最も近い`double`は有理数`0.2`よりも大きく、`0.3`に最も近い `double`は有理数`0.3`よりも小さい、ということが起こります。`0.1`と`0.2`の合計は有理数`0.3`よりも大きくなり、コード内の定数とは一致しません。
+
+<!-- This problem is so known that there is even a website called [0.30000000000000004.com](http://0.30000000000000004.com/). It occurs in every language that uses floating-point math, not just JavaScript. -->
+
+この問題は、[0.30000000000000004.com](http://0.30000000000000004.com/)というサイトがあるくらい有名な問題です。JavaScriptに限らず、浮動小数点演算を使うすべての言語で発生します。
 
 ## Patching numbers
 
