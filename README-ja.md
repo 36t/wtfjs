@@ -1191,16 +1191,20 @@ Number.prototype.isOne = function() {
 
 - [**20.1** Number Objects](https://www.ecma-international.org/ecma-262/#sec-number-objects)
 
-## Comparison of three numbers
+<!-- ## Comparison of three numbers -->
+
+## 3つの数字の比較
 
 ```js
 1 < 2 < 3; // -> true
 3 > 2 > 1; // -> false
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-Why does this work that way? Well, the problem is in the first part of an expression. Here's how it works:
+<!-- Why does this work that way? Well, the problem is in the first part of an expression. Here's how it works: -->
+
+なぜこのような結果になるのでしょうか？それは、式の最初の部分に問題があるからです。その仕組みは次のとおりです。
 
 ```js
 1 < 2 < 3; // 1 < 2 -> true
@@ -1212,13 +1216,17 @@ true > 1; // true -> 1
 1 > 1; // -> false
 ```
 
-We can fix this with _Greater than or equal operator (`>=`)_:
+<!-- We can fix this with _Greater than or equal operator (`>=`)_: -->
+
+この問題は、_大なりイコール演算子（`>=`）_ で解決できます。
 
 ```js
 3 > 2 >= 1; // true
 ```
 
-Read more about Relational operators in the specification:
+<!-- Read more about Relational operators in the specification: -->
+
+関係演算子の仕様の詳細は、次のドキュメントをご覧ください。
 
 - [**12.10** Relational Operators](https://www.ecma-international.org/ecma-262/#sec-relational-operators)
 
