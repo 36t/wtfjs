@@ -1115,7 +1115,9 @@ Object.prototype.toString.call(null);
 // -> '[object Null]'
 ```
 
-## Magically increasing numbers
+<!-- ## Magically increasing numbers -->
+
+## 魔法のように増える数字
 
 ```js
 999999999999999; // -> 999999999999999
@@ -1126,12 +1128,14 @@ Object.prototype.toString.call(null);
 10000000000000000 + 1.1; // -> 10000000000000002
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-This is caused by IEEE 754-2008 standard for Binary Floating-Point Arithmetic. At this scale, it rounds to the nearest even number. Read more:
+<!-- This is caused by IEEE 754-2008 standard for Binary Floating-Point Arithmetic. At this scale, it rounds to the nearest even number. Read more: -->
+
+これは、IEEE 754-2008 standard for Binary Floating-Point Arithmeticによるものです。この範囲では、最も近い偶数に丸められます。
 
 - [**6.1.6** The Number Type](https://www.ecma-international.org/ecma-262/#sec-ecmascript-language-types-number-type)
-- [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754) on Wikipedia
+- [IEEE 754](https://ja.wikipedia.org/wiki/IEEE_754) Wikipedia（日本語）
 
 ## Precision of `0.1 + 0.2`
 
