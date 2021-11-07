@@ -1164,9 +1164,13 @@ Object.prototype.toString.call(null);
 
 この問題は、[0.30000000000000004.com](http://0.30000000000000004.com/)というサイトがあるくらい有名な問題です。JavaScriptに限らず、浮動小数点演算を使うすべての言語で発生します。
 
-## Patching numbers
+<!-- ## Patching numbers -->
 
-You can add your own methods to wrapper objects like `Number` or `String`.
+## パッチ番号
+
+<!-- You can add your own methods to wrapper objects like `Number` or `String`. -->
+
+`Number`や`String`などのラッパーオブジェクトに独自のメソッドを追加できます。
 
 ```js
 Number.prototype.isOne = function() {
@@ -1179,9 +1183,11 @@ Number.prototype.isOne = function() {
 (7).isOne(); // -> false
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-Obviously, you can extend the `Number` object like any other object in JavaScript. However, it's not recommended if the behavior of the defined method is not a part of the specification. Here is the list of `Number`'s properties:
+<!-- Obviously, you can extend the `Number` object like any other object in JavaScript. However, it's not recommended if the behavior of the defined method is not a part of the specification. Here is the list of `Number`'s properties: -->
+
+もちろん、JavaScriptの他のオブジェクトと同じように、`Number`オブジェクトを拡張できます。しかし、定義されたメソッドの動作が仕様の一部でない場合はお勧めしません。 `Number`のプロパティのリストは次のとおりです。
 
 - [**20.1** Number Objects](https://www.ecma-international.org/ecma-262/#sec-number-objects)
 
