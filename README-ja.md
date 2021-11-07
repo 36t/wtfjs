@@ -1054,17 +1054,24 @@ Node.jsはV8エンジンをベースにしているので、HTMLのコメント�
 
 - [**B.1.3** HTML-like Comments](https://www.ecma-international.org/ecma-262/#sec-html-like-comments)
 
-## `NaN` is ~~not~~ a number
+<!-- ## `NaN` is ~~not~~ a number -->
 
-Type of `NaN` is a `'number'`:
+## `Nan`は数字~~ではない~~
+
+<!-- Type of `NaN` is a `'number'`: -->
+
+`NaN`の型は`number`です。
 
 ```js
 typeof NaN; // -> 'number'
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-Explanations of how `typeof` and `instanceof` operators work:
+<!-- Explanations of how `typeof` and `instanceof` operators work: -->
+
+<!-- TODO: -->
+次のドキュメントで`typeof` と `instanceof` 演算子がどのように機能するかを解説しています。
 
 - [**12.5.5** The `typeof` Operator](https://www.ecma-international.org/ecma-262/#sec-typeof-operator)
 - [**12.10.4** Runtime Semantics: InstanceofOperator(`O`,`C`)](https://www.ecma-international.org/ecma-262/#sec-instanceofoperator)
