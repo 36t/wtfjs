@@ -1230,9 +1230,13 @@ true > 1; // true -> 1
 
 - [**12.10** Relational Operators](https://www.ecma-international.org/ecma-262/#sec-relational-operators)
 
-## Funny math
+<!-- ## Funny math -->
 
-Often the results of arithmetic operations in JavaScript might be quite unexpected. Consider these examples:
+## おかしな数学
+
+<!-- Often the results of arithmetic operations in JavaScript might be quite unexpected. Consider these examples: -->
+
+JavaScriptでの算術演算の結果は、しばしば思いがけない結果になることがあります。次の例を考えてみましょう。
 
 ```js
  3  - 1  // -> 2
@@ -1253,20 +1257,24 @@ Often the results of arithmetic operations in JavaScript might be quite unexpect
 [4, 4] * [4, 4] // NaN
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-What's happening in the first four examples? Here's a small table to understand addition in JavaScript:
+<!-- What's happening in the first four examples? Here's a small table to understand addition in JavaScript: -->
+
+最初の4つの例では何が起こっているのでしょうか？ここでは、JavaScriptで足し算を理解するための小さな表を用意しました。
 
 ```
-Number  + Number  -> addition
-Boolean + Number  -> addition
-Boolean + Boolean -> addition
-Number  + String  -> concatenation
-String  + Boolean -> concatenation
-String  + String  -> concatenation
+Number  + Number  -> 足し算
+Boolean + Number  -> 足し算
+Boolean + Boolean -> 足し算
+Number  + String  -> 連結
+String  + Boolean -> 連結
+String  + String  -> 連結
 ```
 
-What about other examples? A `ToPrimitive` and `ToString` methods are being implicitly called for `[]` and `{}` before addition. Read more about evaluation process in the specification:
+<!-- What about other examples? A `ToPrimitive` and `ToString` methods are being implicitly called for `[]` and `{}` before addition. Read more about evaluation process in the specification: -->
+
+他の例ではどうでしょうか？`ToPrimitive`と`ToString` のメソッドが、追加の前に`[]`と`{}`に対して暗黙のうちに呼び出されています。評価処理については、仕様をご覧ください。
 
 - [**12.8.3** The Addition Operator (`+`)](https://www.ecma-international.org/ecma-262/#sec-addition-operator-plus)
 - [**7.1.1** ToPrimitive(`input` [,`PreferredType`])](https://www.ecma-international.org/ecma-262/#sec-toprimitive)
@@ -1281,15 +1289,21 @@ Notably, `{} + []` here is the exception. The reason why it differs from `[] + {
 +[]; // -> 0
 ```
 
-To get the same output as `[] + {}` we can wrap it in parenthesis.
+<!-- To get the same output as `[] + {}` we can wrap it in parenthesis. -->
+
+`[] + {}`と同じ出力を得るためには、括弧で囲むことができます。
 
 ```js
 ({} + []); // -> [object Object]
 ```
 
-## Addition of RegExps
+<!-- ## Addition of RegExps -->
 
-Did you know you can add numbers like this?
+## RegExpsの追加
+
+<!-- Did you know you can add numbers like this? -->
+
+次のように、数字を加算ができることを知っていましたか？
 
 ```js
 // Patch a toString method
@@ -1301,7 +1315,7 @@ RegExp.prototype.toString =
   -/5/; // -> 2
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
 - [**21.2.5.10** get RegExp.prototype.source](https://www.ecma-international.org/ecma-262/#sec-get-regexp.prototype.source)
 
