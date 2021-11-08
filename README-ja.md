@@ -1319,7 +1319,9 @@ RegExp.prototype.toString =
 
 - [**21.2.5.10** get RegExp.prototype.source](https://www.ecma-international.org/ecma-262/#sec-get-regexp.prototype.source)
 
-## Strings aren't instances of `String`
+<!-- ## Strings aren't instances of `String` -->
+
+## 文字列は `String` のインスタンスではありません
 
 ```js
 "str"; // -> 'str'
@@ -1327,9 +1329,11 @@ typeof "str"; // -> 'string'
 "str" instanceof String; // -> false
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-The `String` constructor returns a string:
+<!-- The `String` constructor returns a string: -->
+
+`String`のコンストラクタは文字列を返します。
 
 ```js
 typeof String("str"); // -> 'string'
@@ -1337,20 +1341,26 @@ String("str"); // -> 'str'
 String("str") == "str"; // -> true
 ```
 
-Let's try with a `new`:
+<!-- Let's try with a `new`: -->
+
+では、`new`で試してみます。
 
 ```js
 new String("str") == "str"; // -> true
 typeof new String("str"); // -> 'object'
 ```
 
-Object? What's that?
+<!-- Object? What's that? -->
+
+オブジェクト？何なのでしょうか？
 
 ```js
 new String("str"); // -> [String: 'str']
 ```
 
-More information about the String constructor in the specification:
+<!-- More information about the String constructor in the specification: -->
+
+`String`コンストラクタについての仕様の詳細はこちらのドキュメントをご覧ください。
 
 - [**21.1.1** The String Constructor](https://www.ecma-international.org/ecma-262/#sec-string-constructor)
 
