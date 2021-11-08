@@ -1364,9 +1364,13 @@ new String("str"); // -> [String: 'str']
 
 - [**21.1.1** The String Constructor](https://www.ecma-international.org/ecma-262/#sec-string-constructor)
 
-## Calling functions with backticks
+<!-- ## Calling functions with backticks -->
 
-Let's declare a function which logs all params into the console:
+## バックティック文字を使った関数の呼び出し
+
+<!-- Let's declare a function which logs all params into the console: -->
+
+すべての引数を出力する関数を定義してみましょう。
 
 ```js
 function f(...args) {
@@ -1374,13 +1378,17 @@ function f(...args) {
 }
 ```
 
-No doubt, you know you can call this function like this:
+<!-- No doubt, you know you can call this function like this: -->
+
+間違いなく、あなたはこの関数を次のように呼び出せることを知っています。
 
 ```js
 f(1, 2, 3); // -> [ 1, 2, 3 ]
 ```
 
-But did you know you can call any function with backticks?
+<!-- But did you know you can call any function with backticks? -->
+
+しかし、任意の関数をバックティック文字で呼び出せることを知っていましたか？
 
 ```js
 f`true is ${true}, false is ${false}, array is ${[1, 2, 3]}`;
@@ -1390,9 +1398,12 @@ f`true is ${true}, false is ${false}, array is ${[1, 2, 3]}`;
 // ->   [ 1, 2, 3 ] ]
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
 Well, this is not magic at all if you're familiar with _Tagged template literals_. In the example above, `f` function is a tag for template literal. Tags before template literal allow you to parse template literals with a function. The first argument of a tag function contains an array of string values. The remaining arguments are related to the expressions. Example:
+
+
+_タグ付きテンプレートリテラル_ に慣れている人にとっては、これは全然魔法ではありません。上の例では、関数`f`がテンプレートリテラルのタグになっています。テンプレートリテラルの前のタグは、テンプレートリテラルを関数で解析できます。タグ関数の最初の引数には，文字列値の配列が入ります。残りの引数は式に関連しています。
 
 ```js
 function template(strings, ...keys) {
@@ -1400,9 +1411,13 @@ function template(strings, ...keys) {
 }
 ```
 
-This is the [magic behind](http://mxstbr.blog/2016/11/styled-components-magic-explained/) famous library called [💅 styled-components](https://www.styled-components.com/), which is popular in the React community.
+<!-- This is the [magic behind](http://mxstbr.blog/2016/11/styled-components-magic-explained/) famous library called [💅 styled-components](https://www.styled-components.com/), which is popular in the React community. -->
 
-Link to the specification:
+これは、Reactコミュニティで有名な[💅 styled-components](https://www.styled-components.com/)というライブラリの[魔法](http://mxstbr.blog/2016/11/styled-components-magic-explained/)です。
+
+<!-- Link to the specification: -->
+
+仕様へのリンクです。
 
 - [**12.3.7** Tagged Templates](https://www.ecma-international.org/ecma-262/#sec-tagged-templates)
 
