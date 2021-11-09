@@ -1444,18 +1444,22 @@ Attention, it could break your mind! Try to reproduce this code in your head: we
 - [**19.2.3.3** Function.prototype.call(`thisArg`, ...`args`)](https://www.ecma-international.org/ecma-262/#sec-function.prototype.call)
 - [**19.2.3.1 ** Function.prototype.apply(`thisArg`, `argArray`)](https://www.ecma-international.org/ecma-262/#sec-function.prototype.apply)
 
-## A `constructor` property
+<!-- ## A `constructor` property -->
+
+## `constructor`のプロパティ
 
 ```js
 const c = "constructor";
 c[c][c]('console.log("WTF?")')(); // > WTF?
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-Let's consider this example step-by-step:
+<!-- Let's consider this example step-by-step: -->
 
-```js
+上記のサンプルコードを、順を追って考えてみます。
+
+<!-- ```js
 // Declare a new constant which is a string 'constructor'
 const c = "constructor";
 
@@ -1475,9 +1479,32 @@ c[c][c]('console.log("WTF?")'); // -> [Function: anonymous]
 // And then call this anonymous function
 // The result is console-logging a string 'WTF?'
 c[c][c]('console.log("WTF?")')(); // > WTF?
+``` -->
+
+```js
+// 文字列 'constructor' の新しい定数を宣言
+const c = "constructor";
+
+// c は文字列
+c; // -> 'constructor'
+
+// 文字列のコンストラクタの取得
+c[c]; // -> [Function: String]
+
+// コンストラクタのコンストラクタを取得
+c[c][c]; // -> [Function: Function]
+
+// 関数のコンストラクタを呼び出し、新しい関数の本体を引数として渡す
+c[c][c]('console.log("WTF?")'); // -> [Function: anonymous]
+
+// そして、この匿名関数を呼び出す
+// 結果はconsole.logで文字列 'WTF?' を出力
+c[c][c]('console.log("WTF?")')(); // > WTF?
 ```
 
-An `Object.prototype.constructor` returns a reference to the `Object` constructor function that created the instance object. In case with strings it is `String`, in case with numbers it is `Number` and so on.
+<!-- An `Object.prototype.constructor` returns a reference to the `Object` constructor function that created the instance object. In case with strings it is `String`, in case with numbers it is `Number` and so on. -->
+
+`Object.prototype.constructor`は、インスタンスオブジェクトを生成した`Object`コンストラクタ関数への参照を返します。文字列の場合は`String`、数字の場合は`Number`になります。
 
 - [`Object.prototype.constructor`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor) at MDN
 - [**19.1.3.1** Object.prototype.constructor](https://www.ecma-international.org/ecma-262/#sec-object.prototype.constructor)
