@@ -1421,17 +1421,25 @@ function template(strings, ...keys) {
 
 - [**12.3.7** Tagged Templates](https://www.ecma-international.org/ecma-262/#sec-tagged-templates)
 
-## Call call call
+<!-- ## Call call call -->
 
-> Found by [@cramforce](http://twitter.com/cramforce)
+## コール コール コール
+
+<!-- > Found by [@cramforce](http://twitter.com/cramforce) -->
+
+> 発見者：[@cramforce](http://twitter.com/cramforce)
 
 ```js
 console.log.call.call.call.call.call.apply(a => a, [1, 2]);
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
 Attention, it could break your mind! Try to reproduce this code in your head: we're applying the `call` method using the `apply` method. Read more:
+
+ご注意ください。あなたの心を壊すかもしれません！このコードを頭の中で再現してみてください。`call`メソッドを`apply`メソッドを使って適用しています。
+
+もっと読む：
 
 - [**19.2.3.3** Function.prototype.call(`thisArg`, ...`args`)](https://www.ecma-international.org/ecma-262/#sec-function.prototype.call)
 - [**19.2.3.1 ** Function.prototype.apply(`thisArg`, `argArray`)](https://www.ecma-international.org/ecma-262/#sec-function.prototype.apply)
