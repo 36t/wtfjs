@@ -1509,17 +1509,23 @@ c[c][c]('console.log("WTF?")')(); // > WTF?
 - [`Object.prototype.constructor`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor) at MDN
 - [**19.1.3.1** Object.prototype.constructor](https://www.ecma-international.org/ecma-262/#sec-object.prototype.constructor)
 
-## Object as a key of object's property
+<!-- ## Object as a key of object's property -->
+
+## オブジェクトのプロパティのキーとしてのオブジェクト
 
 ```js
 { [{}]: {} } // -> { '[object Object]': {} }
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-Why does this work so? Here we're using a _Computed property name_. When you pass an object between those brackets, it coerces object to a string, so we get the property key `'[object Object]'` and the value `{}`.
+<!-- Why does this work so? Here we're using a _Computed property name_. When you pass an object between those brackets, it coerces object to a string, so we get the property key `'[object Object]'` and the value `{}`. -->
 
-We can make "brackets hell" like this:
+なぜこのような動作になるのでしょうか？ここでは、_Computed property names_ を使用しています。括弧`[]`の間にオブジェクトを渡すと、オブジェクトが文字列に変換されため、プロパティキー`'[object Object]'`と値`{}`を返します。
+
+<!-- We can make "brackets hell" like this: -->
+
+次のように「括弧地獄」を作ることができます。
 
 ```js
 ({ [{}]: { [{}]: {} } }[{}][{}]); // -> {}
@@ -1532,7 +1538,9 @@ We can make "brackets hell" like this:
 // }
 ```
 
-Read more about object literals here:
+<!-- Read more about object literals here: -->
+
+オブジェクトリテラルの詳細はこちらのドキュメントをご覧ください。
 
 - [Object initializer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) at MDN
 - [**12.2.6** Object Initializer](http://www.ecma-international.org/ecma-262/6.0/#sec-object-initializer)
