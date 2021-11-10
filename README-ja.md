@@ -1545,17 +1545,23 @@ c[c][c]('console.log("WTF?")')(); // > WTF?
 - [Object initializer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) at MDN
 - [**12.2.6** Object Initializer](http://www.ecma-international.org/ecma-262/6.0/#sec-object-initializer)
 
-## Accessing prototypes with `__proto__`
+<!-- ## Accessing prototypes with `__proto__` -->
 
-As we know, primitives don't have prototypes. However, if we try to get a value of `__proto__` for primitives, we would get this:
+## `__proto__` でプロトタイプにアクセスする
+
+<!-- As we know, primitives don't have prototypes. However, if we try to get a value of `__proto__` for primitives, we would get this: -->
+
+ご存知のように、プリミティブにはプロトタイプがありません。しかし、プリミティブの `__proto__` の値を取得しようとすると、次のようになります。
 
 ```js
 (1).__proto__.__proto__.__proto__; // -> null
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-This happens because when something doesn't have a prototype, it will be wrapped into a wrapper object using the `ToObject` method. So, step-by-step:
+<!-- This happens because when something doesn't have a prototype, it will be wrapped into a wrapper object using the `ToObject` method. So, step-by-step: -->
+
+この挙動は、プロトタイプを持たない場合は`ToObject`メソッドを使ってラッパーオブジェクトにラッピングされるために起こります。順を追ってみてみます。
 
 ```js
 (1).__proto__; // -> [Number: 0]
@@ -1563,7 +1569,9 @@ This happens because when something doesn't have a prototype, it will be wrapped
 (1).__proto__.__proto__.__proto__; // -> null
 ```
 
-Here is more information about `__proto__`:
+<!-- Here is more information about `__proto__`: -->
+
+`__proto__`の詳細はこちらのドキュメントをご覧ください。
 
 - [**B.2.2.1** Object.prototype.**proto**](https://www.ecma-international.org/ecma-262/#sec-object.prototype.__proto__)
 - [**7.1.13** ToObject(`argument`)](https://www.ecma-international.org/ecma-262/#sec-toobject)
