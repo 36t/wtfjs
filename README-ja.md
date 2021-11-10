@@ -1578,21 +1578,27 @@ c[c][c]('console.log("WTF?")')(); // > WTF?
 
 ## `` `${{Object}}` ``
 
-What is the result of the expression below?
+<!-- What is the result of the expression below? -->
+
+下の式の結果はどうなりますか？
 
 ```js
 `${{ Object }}`;
 ```
 
-The answer is:
+<!-- The answer is: -->
+
+答えはこちら。
 
 ```js
 // -> '[object Object]'
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-We defined an object with a property `Object` using _Shorthand property notation_:
+<!-- We defined an object with a property `Object` using _Shorthand property notation_: -->
+
+_Shorthand property notation_ を利用し、プロパティ `Object` を持つオブジェクトを定義しました。
 
 ```js
 {
@@ -1600,7 +1606,9 @@ We defined an object with a property `Object` using _Shorthand property notation
 }
 ```
 
-Then we've passed this object to the template literal, so the `toString` method calls for that object. That's why we get the string `'[object Object]'`.
+<!-- Then we've passed this object to the template literal, so the `toString` method calls for that object. That's why we get the string `'[object Object]'`. -->
+
+そして、このオブジェクトをテンプレートリテラルに渡しているので、`toString`メソッドはそのオブジェクトを呼び出しています。これが、文字列 `'[object Object]'を返す理由です。
 
 - [**12.2.9** Template Literals](https://www.ecma-international.org/ecma-262/#sec-template-literals)
 - [Object initializer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) at MDN
