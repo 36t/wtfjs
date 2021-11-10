@@ -1613,9 +1613,13 @@ _Shorthand property notation_ を利用し、プロパティ `Object` を持つ�
 - [**12.2.9** Template Literals](https://www.ecma-international.org/ecma-262/#sec-template-literals)
 - [Object initializer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) at MDN
 
-## Destructuring with default values
+<!-- ## Destructuring with default values -->
 
-Consider this example:
+## デフォルト値を使った分割代入
+
+<!-- Consider this example: -->
+
+次の例を考えてみてください。
 
 ```js
 let x,
@@ -1623,13 +1627,17 @@ let x,
 y;
 ```
 
-The example above is a great task for an interview. What the value of `y`? The answer is:
+<!-- The example above is a great task for an interview. What the value of `y`? The answer is: -->
+
+上の例は、面接時の素晴らしい課題になります。`y`の値は何になりますか？
+
+答えはこちら。
 
 ```js
 // -> 1
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
 ```js
 let x,
@@ -1639,12 +1647,19 @@ y;
 //  1       3           2    4
 ```
 
-With the example above:
+<!-- With the example above: -->
 
-1. We declare `x` with no value, so it's `undefined`.
+上の例だと：
+
+<!-- 1. We declare `x` with no value, so it's `undefined`.
 2. Then we pack the value of `x` into the object property `x`.
 3. Then we extract the value of `x` using destructuring and want to assign it to `y`. If the value is not defined, then we're going to use `1` as the default value.
-4. Return the value of `y`.
+4. Return the value of `y`. -->
+
+1. `x`は初期値無しで宣言しているので`undefined`になります。
+2. そして、`x`の値をオブジェクトのプロパティ`x`に代入します。
+3. そして、分割代入を使って`x`の値を抽出し、それを`y`に代入します。値が定義されていない場合は、デフォルト値として`1`が入ります。
+4. `y`の値を返します。
 
 - [Object initializer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) at MDN
 
