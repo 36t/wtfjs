@@ -1753,15 +1753,19 @@ foo: {
 - [**13.13** Labelled Statements](https://tc39.github.io/ecma262/#sec-labelled-statements)
 - [Labeled statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label) at MDN
 
-## Nested labels
+<!-- ## Nested labels -->
+
+## 入れ子のレベル
 
 ```js
 a: b: c: d: e: f: g: 1, 2, 3, 4, 5; // -> 5
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-Similar to previous examples, follow these links:
+<!-- Similar to previous examples, follow these links: -->
+
+これまでの例と同様、次のドキュメントをご覧ください。
 
 - [**12.16** Comma Operator (`,`)](https://www.ecma-international.org/ecma-262/#sec-comma-operator)
 - [**13.13** Labelled Statements](https://tc39.github.io/ecma262/#sec-labelled-statements)
