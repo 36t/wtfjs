@@ -1669,7 +1669,7 @@ y;
 
 <!-- Interesting examples could be composed with spreading of arrays. Consider this: -->
 
-興味深い例は、配列のスプレッド構文で構成されています。こちらを考えてみましょう。
+面白い例は、配列のスプレッド構文で構成されています。こちらを考えてみましょう。
 
 ```js
 [...[..."..."]].length; // -> 3
@@ -1719,7 +1719,11 @@ y;
 
 ## Labels
 
-Not many programmers know about labels in JavaScript. They are kind of interesting:
+## ラベル
+
+<!-- Not many programmers know about labels in JavaScript. They are kind of interesting: -->
+
+JavaScriptのラベルを知っているプログラマーは少ないと思います。ラベルはすこし面白いです。
 
 ```js
 foo: {
@@ -1732,13 +1736,19 @@ foo: {
 // -> undefined
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-The labeled statement is used with `break` or `continue` statements. You can use a label to identify a loop, and then use the `break` or `continue` statements to indicate whether a program should interrupt the loop or continue its execution.
+<!-- The labeled statement is used with `break` or `continue` statements. You can use a label to identify a loop, and then use the `break` or `continue` statements to indicate whether a program should interrupt the loop or continue its execution. -->
 
-In the example above, we identify a label `foo`. After that `console.log('first');` executes and then we interrupt the execution.
+ラベル付き文は、`break`文や`continue`文と一緒に使います。ラベルを使ってループを識別し、`break`文や`continue`文を使って、プログラムがループを中断すべきか、実行を継続すべきかを明示できます。
 
-Read more about labels in JavaScript:
+<!-- In the example above, we identify a label `foo`. After that `console.log('first');` executes and then we interrupt the execution. -->
+
+上の例では、まずラベル`foo`を識別し、`console.log('first');`を実行した後、処理を中断します。
+
+<!-- Read more about labels in JavaScript: -->
+
+ラベルの仕様の詳細は、次のドキュメントをご覧ください。
 
 - [**13.13** Labelled Statements](https://tc39.github.io/ecma262/#sec-labelled-statements)
 - [Labeled statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label) at MDN
