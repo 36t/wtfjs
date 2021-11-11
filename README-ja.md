@@ -1822,9 +1822,13 @@ new class F extends (String, Array) {}(); // -> F []
 - [**14.5** Class Definitions](https://www.ecma-international.org/ecma-262/#sec-class-definitions)
 - [**12.16** Comma Operator (`,`)](https://www.ecma-international.org/ecma-262/#sec-comma-operator)
 
-## A generator which yields itself
+<!-- ## A generator which yields itself -->
 
-Consider this example of a generator which yields itself:
+## 自分自身をyieldするジェネレーター
+
+<!-- Consider this example of a generator which yields itself: -->
+
+自分自身をyieldするジェネレーターを考えてみます。
 
 ```js
 (function* f() {
@@ -1833,7 +1837,9 @@ Consider this example of a generator which yields itself:
 // -> { value: [GeneratorFunction: f], done: false }
 ```
 
-As you can see, the returned value is an object with its `value` equal to `f`. In that case, we can do something like this:
+<!-- As you can see, the returned value is an object with its `value` equal to `f`. In that case, we can do something like this: -->
+
+お分かりのように、戻り値は`f`に等しい`value`プロパティを持ったオブジェクトになります。これは、次のようにできます。
 
 ```js
 (function* f() {
@@ -1844,7 +1850,7 @@ As you can see, the returned value is an object with its `value` equal to `f`. I
   .next()(
     // -> { value: [GeneratorFunction: f], done: false }
 
-    // and again
+    // そして再び
     function* f() {
       yield f;
     }
@@ -1856,7 +1862,7 @@ As you can see, the returned value is an object with its `value` equal to `f`. I
   .next()(
     // -> { value: [GeneratorFunction: f], done: false }
 
-    // and again
+    // そして再び
     function* f() {
       yield f;
     }
@@ -1870,13 +1876,15 @@ As you can see, the returned value is an object with its `value` equal to `f`. I
   .next();
 // -> { value: [GeneratorFunction: f], done: false }
 
-// and so on
+// などなど
 // …
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-To understand why this works that way, read these sections of the specification:
+<!-- To understand why this works that way, read these sections of the specification: -->
+
+なぜこのように機能するかを理解するには、仕様の次のドキュメントをご覧ください。
 
 - [**25** Control Abstraction Objects](https://www.ecma-international.org/ecma-262/#sec-control-abstraction-objects)
 - [**25.3** Generator Objects](https://www.ecma-international.org/ecma-262/#sec-generator-objects)
