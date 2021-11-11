@@ -1889,9 +1889,13 @@ new class F extends (String, Array) {}(); // -> F []
 - [**25** Control Abstraction Objects](https://www.ecma-international.org/ecma-262/#sec-control-abstraction-objects)
 - [**25.3** Generator Objects](https://www.ecma-international.org/ecma-262/#sec-generator-objects)
 
-## A class of class
+<!-- ## A class of class -->
 
-Consider this obfuscated syntax playing:
+## クラスのクラス
+
+<!-- Consider this obfuscated syntax playing: -->
+
+次の難解な構文を考えてみましょう。
 
 ```js
 typeof new class {
@@ -1899,11 +1903,15 @@ typeof new class {
 }(); // -> 'object'
 ```
 
-It seems like we're declaring a class inside of class. Should be an error, however, we get the string `'object'`.
+<!-- It seems like we're declaring a class inside of class. Should be an error, however, we get the string `'object'`. -->
 
-### 💡 Explanation:
+一見、クラスの中でクラスを宣言しているように見えます。エラーになるはずですが、文字列`'object'`を取得しています。
 
-Since ECMAScript 5 era, _keywords_ are allowed as _property names_. So think about it as this simple object example:
+### 💡 解説
+
+<!-- Since ECMAScript 5 era, _keywords_ are allowed as _property names_. So think about it as this simple object example: -->
+
+ECMAScript 5の時代から、_キーワード_ は _プロパティ名_ として認められています。<!-- なので、-->以下の単純なオブジェクトを例として考えてみてください。
 
 ```js
 const foo = {
@@ -1911,7 +1919,10 @@ const foo = {
 };
 ```
 
-And ES6 standardized shorthand method definitions. Also, classes can be anonymous. So if we drop `: function` part, we're going to get:
+<!-- And ES6 standardized shorthand method definitions. Also, classes can be anonymous. So if we drop `: function` part, we're going to get: -->
+
+ES6ではショートハンドメソッドの定義を標準化しました。あわせて、クラスは匿名にできます。 
+なので、`: function`の部分を削除すると、次のようになります。
 
 ```js
 class {
@@ -1919,9 +1930,13 @@ class {
 }
 ```
 
-The result of a default class is always a simple object. And its typeof should return `'object'`.
+<!-- The result of a default class is always a simple object. And its typeof should return `'object'`. -->
 
-Read more here:
+デフォルトのクラスの結果は常に単純なオブジェクトです。そして、typeof演算子は`'object'`を返さなければなりません。
+
+<!-- Read more here: -->
+
+詳細は以下のドキュメントをご覧ください。
 
 - [**14.3** Method Definitions](https://www.ecma-international.org/ecma-262/#sec-method-definitions)
 - [**14.5** Class Definitions](https://www.ecma-international.org/ecma-262/#sec-class-definitions)
