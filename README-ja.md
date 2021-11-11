@@ -1663,21 +1663,33 @@ y;
 
 - [Object initializer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) at MDN
 
-## Dots and spreading
+<!-- ## Dots and spreading -->
 
-Interesting examples could be composed with spreading of arrays. Consider this:
+## ドットとスプレッド
+
+<!-- Interesting examples could be composed with spreading of arrays. Consider this: -->
+
+興味深い例は、配列のスプレッド構文で構成されています。こちらを考えてみましょう。
 
 ```js
 [...[..."..."]].length; // -> 3
 ```
 
-### 💡 Explanation:
+### 💡 解説
 
-Why `3`? When we use the [spread operator](http://www.ecma-international.org/ecma-262/6.0/#sec-array-initializer), the `@@iterator` method is called, and the returned iterator is used to obtain the values to be iterated. The default iterator for string spreads a string into characters. After spreading, we pack these characters into an array. Then we spread this array again and pack it back to an array.
+<!-- Why `3`? When we use the [spread operator](http://www.ecma-international.org/ecma-262/6.0/#sec-array-initializer), the `@@iterator` method is called, and the returned iterator is used to obtain the values to be iterated. The default iterator for string spreads a string into characters. After spreading, we pack these characters into an array. Then we spread this array again and pack it back to an array. -->
 
-A `'...'` string consists with three `.` characters, so the length of resulting array is `3`.
+どうして`3`になるのでしょうか？
+[スプレッド構文](http://www.ecma-international.org/ecma-262/6.0/#sec-array-initializer)を使うと、`@@iterator`メソッドが呼び出され、返されたイテレータを使って反復して値を取得します。
+文字列のデフォルトのイテレータは、文字列を文字にスプレッドします。スプレッドした後，これらの文字を配列に代入します。そして、この配列を再びスプレットし、再び配列に代入します。
 
-Now, step-by-step:
+<!-- A `'...'` string consists with three `.` characters, so the length of resulting array is `3`. -->
+
+`...`の文字列は3つの`.`で構成されているので、配列の長さは`3`となります。
+
+<!-- Now, step-by-step: -->
+
+順を追ってみます。
 
 ```js
 [...'...']             // -> [ '.', '.', '.' ]
@@ -1685,14 +1697,24 @@ Now, step-by-step:
 [...[...'...']].length // -> 3
 ```
 
-Obviously, we can spread and wrap the elements of an array as many times as we want:
+<!-- Obviously, we can spread and wrap the elements of an array as many times as we want: -->
+
+もちろん、配列の要素を何度でもスプレットしたりラップできます。
+
+<!-- ```js
+[...'...']                 // -> [ '.', '.', '.' ]
+[...[...'...']]            // -> [ '.', '.', '.' ]
+[...[...[...'...']]]       // -> [ '.', '.', '.' ]
+[...[...[...[...'...']]]]  // -> [ '.', '.', '.' ]
+// and so on …
+``` -->
 
 ```js
 [...'...']                 // -> [ '.', '.', '.' ]
 [...[...'...']]            // -> [ '.', '.', '.' ]
 [...[...[...'...']]]       // -> [ '.', '.', '.' ]
 [...[...[...[...'...']]]]  // -> [ '.', '.', '.' ]
-// and so on …
+// などなど …
 ```
 
 ## Labels
