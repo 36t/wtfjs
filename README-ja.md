@@ -1797,19 +1797,27 @@ a: b: c: d: e: f: g: 1, 2, 3, 4, 5; // -> 5
 
 - [**13.15** The `try` Statement](https://www.ecma-international.org/ecma-262/#sec-try-statement)
 
-## Is this multiple inheritance?
+<!-- ## Is this multiple inheritance? -->
 
-Take a look at the example below:
+## これは多重継承ですか？
+
+<!-- Take a look at the example below: -->
+
+下の例をご覧ください。
 
 ```js
 new class F extends (String, Array) {}(); // -> F []
 ```
 
-Is this a multiple inheritance? Nope.
+<!-- Is this a multiple inheritance? Nope. -->
 
-### 💡 Explanation:
+これは多重継承ですか？いいえ、そうではありません。
 
-The interesting part is the value of the `extends` clause (`(String, Array)`). The grouping operator always returns its last argument, so `(String, Array)` is actually just `Array`. That means we've just created a class which extends `Array`.
+### 💡 解説
+
+<!-- The interesting part is the value of the `extends` clause (`(String, Array)`). The grouping operator always returns its last argument, so `(String, Array)` is actually just `Array`. That means we've just created a class which extends `Array`. -->
+
+面白いのは、`extends`キーワードの値「`(String, Array)`」です。グループ化演算子は常に最後の引数を返すので、`(String, Array)`は実際には単に`Array`になります。つまり、`Array`を拡張したクラスを作成したことになります。
 
 - [**14.5** Class Definitions](https://www.ecma-international.org/ecma-262/#sec-class-definitions)
 - [**12.16** Comma Operator (`,`)](https://www.ecma-international.org/ecma-262/#sec-comma-operator)
