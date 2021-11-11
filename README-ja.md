@@ -1771,9 +1771,13 @@ a: b: c: d: e: f: g: 1, 2, 3, 4, 5; // -> 5
 - [**13.13** Labelled Statements](https://tc39.github.io/ecma262/#sec-labelled-statements)
 - [Labeled statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label) at MDN
 
-## Insidious `try..catch`
+<!-- ## Insidious `try..catch` -->
 
-What will this expression return? `2` or `3`?
+## 狡猾な`try..catch`
+
+<!-- What will this expression return? `2` or `3`? -->
+
+次の式は`2`か`3`のどちらを返すでしょうか？
 
 ```js
 (() => {
@@ -1785,9 +1789,11 @@ What will this expression return? `2` or `3`?
 })();
 ```
 
-The answer is `3`. Surprised?
+<!-- The answer is `3`. Surprised? -->
 
-### 💡 Explanation:
+答えは`3`になります。驚きましたか？
+
+### 💡 解説
 
 - [**13.15** The `try` Statement](https://www.ecma-international.org/ecma-262/#sec-try-statement)
 
